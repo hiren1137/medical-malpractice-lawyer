@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://medicalmalpracticelawyernearme.com/sitemap-index.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private pages
+Disallow: /api/

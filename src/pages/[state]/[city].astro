@@ -1,0 +1,445 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { 
+  getAllCities, 
+  getLawyersByCity, 
+  getCityStats,
+  type LawyerData 
+} from '../../utils/lawyers';
+
+// Generate static paths for all cities
+export function getStaticPaths() {
+  const cities = getAllCities();
+  
+  return cities.map((city) => ({
+    params: { 
+      state: city.state_slug,
+      city: city.city_slug 
+    },
+    props: { 
+      stateSlug: city.state_slug,
+      stateName: city.state,
+      citySlug: city.city_slug,
+      cityName: city.city,
+    },
+  }));
+}
+
+interface Props {
+  stateSlug: string;
+  stateName: string;
+  citySlug: string;
+  cityName: string;
+}
+
+const { stateSlug, stateName, citySlug, cityName } = Astro.props;
+
+// Get all lawyers for this city
+const lawyers = getLawyersByCity(stateSlug, citySlug);
+const stats = getCityStats(stateSlug, citySlug);
+
+// Sort lawyers by rating then reviews
+const sortedLawyers = [...lawyers].sort((a, b) => {
+  if (b.rating !== a.rating) return b.rating - a.rating;
+  return b.reviews_count - a.reviews_count;
+});
+
+const title = `Medical Malpractice Lawyers in ${cityName}, ${stateName} - Find Expert Attorneys`;
+const description = `Find top-rated medical malpractice lawyers in ${cityName}, ${stateName}. ${stats.totalLawyers} verified attorneys with ${stats.avgRating} average rating. Get help for your medical negligence case.`;
+const canonicalPath = `/${stateSlug}/${citySlug}/`;
+---
+
+<BaseLayout title={title} description={description} canonicalPath={canonicalPath}>
+  <Header />
+  <main>
+    <!-- Hero Section -->
+    <section class="city-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="separator">›</span>
+          <a href={`/${stateSlug}/`}>{stateName}</a>
+          <span class="separator">›</span>
+          <span class="current">{cityName}</span>
+        </nav>
+        <h1>Medical Malpractice Lawyers in {cityName}, {stateName}</h1>
+        <p class="city-subtitle">
+          Find experienced medical malpractice attorneys in {cityName}. 
+          Our directory features {stats.totalLawyers} verified lawyers ready to help with your case.
+        </p>
+        <div class="city-stats">
+          <div class="stat-item">
+            <span class="stat-value">{stats.totalLawyers}</span>
+            <span class="stat-label">Lawyers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">{stats.avgRating}</span>
+            <span class="stat-label">Avg. Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lawyers List -->
+    <section class="lawyers-section section">
+      <div class="container">
+        <h2>All Medical Malpractice Lawyers in {cityName}</h2>
+        <p class="section-desc">
+          Browse {stats.totalLawyers} verified medical malpractice attorneys in {cityName}, {stateName}
+        </p>
+        <div class="lawyers-list">
+          {sortedLawyers.map((lawyer) => (
+            <a href={`/${stateSlug}/${citySlug}/${lawyer.slug}/`} class="lawyer-card">
+              <div class="lawyer-header">
+                <div class="lawyer-avatar">
+                  {lawyer.logo && (
+                    <img 
+                      src={lawyer.logo} 
+                      alt={lawyer.name} 
+                      class="avatar-img" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                  )}
+                  <span class="avatar-initials" style={lawyer.logo ? 'display: none;' : 'display: flex;'}>
+                    {lawyer.name.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                  </span>
+                </div>
+                <div class="lawyer-info">
+                  <h3 class="lawyer-name">{lawyer.name}</h3>
+                  <p class="lawyer-category">{lawyer.category}</p>
+                  <div class="lawyer-rating">
+                    <span class="stars">{'★'.repeat(Math.round(lawyer.rating))}</span>
+                    <span class="rating-value">{lawyer.rating}</span>
+                    <span class="reviews">({lawyer.reviews_count} reviews)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lawyer-details">
+                <div class="detail-item">
+                  <span class="detail-icon">📍</span>
+                  <span class="detail-text">{lawyer.address}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-icon">📞</span>
+                  <span class="detail-text">{lawyer.phone}</span>
+                </div>
+              </div>
+              <div class="lawyer-badges">
+                {lawyer.verified && <span class="badge verified">✓ Verified</span>}
+                {lawyer.rating >= 4.5 && <span class="badge top-rated">⭐ Top Rated</span>}
+              </div>
+              <span class="view-profile">View Full Profile →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section section bg-gray-50">
+      <div class="container">
+        <div class="content-wrapper">
+          <h2>Finding a Medical Malpractice Lawyer in {cityName}</h2>
+          <p>
+            If you or a loved one has been injured due to medical negligence in {cityName}, {stateName}, 
+            it's crucial to find an experienced medical malpractice attorney who can help you navigate 
+            the complex legal process and fight for the compensation you deserve.
+          </p>
+          
+          <h3>What to Look for in a Medical Malpractice Lawyer</h3>
+          <ul>
+            <li>Experience specifically in medical malpractice cases</li>
+            <li>Knowledge of {stateName} medical malpractice laws</li>
+            <li>Access to medical experts who can review your case</li>
+            <li>A track record of successful verdicts and settlements</li>
+            <li>Clear communication and a commitment to your case</li>
+          </ul>
+          
+          <h3>Types of Medical Malpractice Cases in {cityName}</h3>
+          <ul>
+            <li>Surgical errors and hospital negligence</li>
+            <li>Misdiagnosis or delayed diagnosis</li>
+            <li>Birth injuries and obstetric malpractice</li>
+            <li>Medication and prescription errors</li>
+            <li>Anesthesia complications</li>
+            <li>Emergency room errors</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .city-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 3rem 0;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .breadcrumb a { color: #888; text-decoration: none; }
+  .breadcrumb a:hover { color: #fff; }
+  .breadcrumb .separator { color: #555; }
+  .breadcrumb .current { color: #fff; }
+  
+  .city-hero h1 {
+    color: #ffffff !important;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  
+  .city-subtitle {
+    color: #aaa;
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+  
+  .city-stats {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  /* Lawyers List */
+  .lawyers-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .lawyers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .lawyer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .lawyer-card:hover {
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .lawyer-header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .lawyer-avatar {
+    width: 72px;
+    height: 72px;
+    background: #000;
+    color: #fff;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .avatar-initials {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .lawyer-info {
+    flex-grow: 1;
+  }
+  
+  .lawyer-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.25rem;
+  }
+  
+  .lawyer-category {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .lawyer-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .stars {
+    color: #f59e0b;
+    font-size: 1rem;
+  }
+  
+  .rating-value {
+    font-weight: 700;
+    color: #000;
+  }
+  
+  .reviews {
+    color: #888;
+    font-size: 0.875rem;
+  }
+  
+  .lawyer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 0.5rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #555;
+  }
+  
+  .detail-icon {
+    flex-shrink: 0;
+  }
+  
+  .lawyer-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .badge.verified {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+  }
+  
+  .badge.top-rated {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+  }
+  
+  .view-profile {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  /* Content Section */
+  .bg-gray-50 {
+    background: #f9f9f9;
+  }
+  
+  .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .content-wrapper h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .content-wrapper h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content-wrapper p {
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .content-wrapper ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: #555;
+  }
+  
+  .content-wrapper li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .city-hero h1 {
+      font-size: 1.75rem;
+    }
+    
+    .lawyer-header {
+      flex-direction: column;
+    }
+    
+    .lawyer-avatar {
+      width: 60px;
+      height: 60px;
+    }
+  }
+</style>

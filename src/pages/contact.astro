@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Contact Us - Medical Malpractice Lawyer Directory";
+const description = "Get in touch with our team. List your practice or reach out for inquiries about our medical malpractice lawyer directory.";
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/contact/">
+  <Header />
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p class="hero-subtitle">Have questions or want to list your practice? We're here to help.</p>
+      </div>
+    </section>
+
+    <section class="contact-section section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="info-card">
+            <h2>📧 Get in Touch</h2>
+            <p>For general inquiries, listing your practice, or any other questions, reach out to us via email:</p>
+            <div class="email-box">
+              <span class="email-icon">✉️</span>
+              <a href="mailto:techjits.com@gmail.com" class="email-link">techjits.com@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h2>⚖️ Looking for a Lawyer?</h2>
+            <p>If you're looking for a medical malpractice lawyer, use our directory to find verified attorneys in your area.</p>
+            <a href="/find-lawyer/" class="secondary-btn">Find Lawyers →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    color: #aaa;
+    font-size: 1.125rem;
+  }
+
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .info-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .info-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .email-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f9f9f9;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .email-icon {
+    font-size: 1.5rem;
+  }
+
+  .email-link {
+    color: #000;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+  }
+
+  .email-link:hover {
+    text-decoration: underline;
+  }
+
+  .secondary-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .secondary-btn:hover {
+    background: #333;
+  }
+
+  @media (max-width: 700px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-hero h1 {
+      font-size: 2rem;
+    }
+
+    .info-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

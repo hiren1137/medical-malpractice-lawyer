@@ -1,0 +1,181 @@
+---
+// Footer Component
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  about: [
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact" },
+    { href: "/how-it-works", label: "How It Works" },
+  ],
+  legal: [
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/terms-of-service", label: "Terms of Service" },
+    { href: "/disclaimer", label: "Disclaimer" },
+  ],
+};
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <span class="logo-icon">⚖️</span>
+          <span class="logo-text">Medical Malpractice Lawyer Near Me</span>
+        </a>
+        <p class="footer-tagline">
+          Connecting victims of medical malpractice with experienced attorneys across the United States.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>About</h4>
+          <ul>
+            {footerLinks.about.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            {footerLinks.legal.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} Medical Malpractice Lawyer Near Me. All rights reserved.
+      </p>
+      <p class="disclaimer">
+        This website is for informational purposes only and does not constitute legal advice.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--spacing-16) 0 var(--spacing-8);
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: var(--spacing-12);
+    padding-bottom: var(--spacing-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .footer-logo:hover {
+    opacity: 0.9;
+  }
+  
+  .logo-icon {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .footer-tagline {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 0;
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+  }
+  
+  .footer-column h4 {
+    color: var(--color-white);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: var(--spacing-4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .footer-column a {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-column a:hover {
+    color: var(--color-white);
+    opacity: 1;
+  }
+  
+  .footer-bottom {
+    padding-top: var(--spacing-8);
+    text-align: center;
+  }
+  
+  .copyright {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .disclaimer {
+    color: var(--color-gray-600);
+    font-size: var(--font-size-xs);
+    margin: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+    }
+    
+    .footer-tagline {
+      max-width: none;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+    }
+    
+    .footer {
+      padding: var(--spacing-12) 0 var(--spacing-6);
+    }
+  }
+</style>

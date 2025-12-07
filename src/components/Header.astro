@@ -1,0 +1,186 @@
+---
+// Header Component with Navigation
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <span class="logo-icon">⚖️</span>
+        <span class="logo-text">Medical Malpractice Lawyer Near Me</span>
+      </a>
+      
+      <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      
+      <ul class="nav-links">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link">{link.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href="/find-lawyer/" class="btn btn-primary">Find Lawyer</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-black);
+    padding: var(--spacing-4) 0;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+  }
+  
+  .logo:hover {
+    opacity: 0.9;
+  }
+  
+  .logo-icon {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .logo-text {
+      display: inline;
+    }
+  }
+  
+  .nav-links {
+    display: none;
+    list-style: none;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+  
+  .nav-link {
+    color: var(--color-white);
+    font-weight: 500;
+    transition: opacity var(--transition-fast);
+  }
+  
+  .nav-link:hover {
+    opacity: 0.8;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-2);
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-toggle {
+      display: none;
+    }
+  }
+  
+  .hamburger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: all var(--transition-fast);
+  }
+  
+  .hamburger::before {
+    top: -8px;
+  }
+  
+  .hamburger::after {
+    bottom: -8px;
+  }
+  
+  /* Mobile Menu Open State */
+  .header.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-black);
+    padding: var(--spacing-6);
+    gap: var(--spacing-4);
+  }
+  
+  .header.menu-open .hamburger {
+    background-color: transparent;
+  }
+  
+  .header.menu-open .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  .header.menu-open .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+</style>
+
+<script>
+  const header = document.querySelector('.header');
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  
+  mobileToggle?.addEventListener('click', () => {
+    header?.classList.toggle('menu-open');
+    const isOpen = header?.classList.contains('menu-open');
+    mobileToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

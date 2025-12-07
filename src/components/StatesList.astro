@@ -1,0 +1,208 @@
+---
+// States List Component - All 50 US States
+const states = [
+  { name: "Alabama", abbr: "AL", cities: ["Birmingham", "Montgomery", "Mobile"] },
+  { name: "Alaska", abbr: "AK", cities: ["Anchorage", "Fairbanks", "Juneau"] },
+  { name: "Arizona", abbr: "AZ", cities: ["Phoenix", "Tucson", "Mesa"] },
+  { name: "Arkansas", abbr: "AR", cities: ["Little Rock", "Fort Smith", "Fayetteville"] },
+  { name: "California", abbr: "CA", cities: ["Los Angeles", "San Francisco", "San Diego"] },
+  { name: "Colorado", abbr: "CO", cities: ["Denver", "Colorado Springs", "Aurora"] },
+  { name: "Connecticut", abbr: "CT", cities: ["Hartford", "New Haven", "Stamford"] },
+  { name: "Delaware", abbr: "DE", cities: ["Wilmington", "Dover", "Newark"] },
+  { name: "Florida", abbr: "FL", cities: ["Miami", "Orlando", "Tampa"] },
+  { name: "Georgia", abbr: "GA", cities: ["Atlanta", "Savannah", "Augusta"] },
+  { name: "Hawaii", abbr: "HI", cities: ["Honolulu", "Hilo", "Kailua"] },
+  { name: "Idaho", abbr: "ID", cities: ["Boise", "Meridian", "Nampa"] },
+  { name: "Illinois", abbr: "IL", cities: ["Chicago", "Aurora", "Naperville"] },
+  { name: "Indiana", abbr: "IN", cities: ["Indianapolis", "Fort Wayne", "Evansville"] },
+  { name: "Iowa", abbr: "IA", cities: ["Des Moines", "Cedar Rapids", "Davenport"] },
+  { name: "Kansas", abbr: "KS", cities: ["Wichita", "Overland Park", "Kansas City"] },
+  { name: "Kentucky", abbr: "KY", cities: ["Louisville", "Lexington", "Bowling Green"] },
+  { name: "Louisiana", abbr: "LA", cities: ["New Orleans", "Baton Rouge", "Shreveport"] },
+  { name: "Maine", abbr: "ME", cities: ["Portland", "Lewiston", "Bangor"] },
+  { name: "Maryland", abbr: "MD", cities: ["Baltimore", "Frederick", "Rockville"] },
+  { name: "Massachusetts", abbr: "MA", cities: ["Boston", "Worcester", "Springfield"] },
+  { name: "Michigan", abbr: "MI", cities: ["Detroit", "Grand Rapids", "Ann Arbor"] },
+  { name: "Minnesota", abbr: "MN", cities: ["Minneapolis", "Saint Paul", "Rochester"] },
+  { name: "Mississippi", abbr: "MS", cities: ["Jackson", "Gulfport", "Biloxi"] },
+  { name: "Missouri", abbr: "MO", cities: ["Kansas City", "St. Louis", "Springfield"] },
+  { name: "Montana", abbr: "MT", cities: ["Billings", "Missoula", "Great Falls"] },
+  { name: "Nebraska", abbr: "NE", cities: ["Omaha", "Lincoln", "Bellevue"] },
+  { name: "Nevada", abbr: "NV", cities: ["Las Vegas", "Henderson", "Reno"] },
+  { name: "New Hampshire", abbr: "NH", cities: ["Manchester", "Nashua", "Concord"] },
+  { name: "New Jersey", abbr: "NJ", cities: ["Newark", "Jersey City", "Paterson"] },
+  { name: "New Mexico", abbr: "NM", cities: ["Albuquerque", "Las Cruces", "Santa Fe"] },
+  { name: "New York", abbr: "NY", cities: ["New York City", "Buffalo", "Rochester"] },
+  { name: "North Carolina", abbr: "NC", cities: ["Charlotte", "Raleigh", "Greensboro"] },
+  { name: "North Dakota", abbr: "ND", cities: ["Fargo", "Bismarck", "Grand Forks"] },
+  { name: "Ohio", abbr: "OH", cities: ["Columbus", "Cleveland", "Cincinnati"] },
+  { name: "Oklahoma", abbr: "OK", cities: ["Oklahoma City", "Tulsa", "Norman"] },
+  { name: "Oregon", abbr: "OR", cities: ["Portland", "Salem", "Eugene"] },
+  { name: "Pennsylvania", abbr: "PA", cities: ["Philadelphia", "Pittsburgh", "Allentown"] },
+  { name: "Rhode Island", abbr: "RI", cities: ["Providence", "Warwick", "Cranston"] },
+  { name: "South Carolina", abbr: "SC", cities: ["Charleston", "Columbia", "Greenville"] },
+  { name: "South Dakota", abbr: "SD", cities: ["Sioux Falls", "Rapid City", "Aberdeen"] },
+  { name: "Tennessee", abbr: "TN", cities: ["Nashville", "Memphis", "Knoxville"] },
+  { name: "Texas", abbr: "TX", cities: ["Houston", "Dallas", "San Antonio"] },
+  { name: "Utah", abbr: "UT", cities: ["Salt Lake City", "Provo", "West Valley City"] },
+  { name: "Vermont", abbr: "VT", cities: ["Burlington", "Essex", "Rutland"] },
+  { name: "Virginia", abbr: "VA", cities: ["Virginia Beach", "Norfolk", "Richmond"] },
+  { name: "Washington", abbr: "WA", cities: ["Seattle", "Spokane", "Tacoma"] },
+  { name: "West Virginia", abbr: "WV", cities: ["Charleston", "Huntington", "Morgantown"] },
+  { name: "Wisconsin", abbr: "WI", cities: ["Milwaukee", "Madison", "Green Bay"] },
+  { name: "Wyoming", abbr: "WY", cities: ["Cheyenne", "Casper", "Laramie"] },
+];
+
+function slugify(text: string): string {
+  return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+}
+---
+
+<section class="states-list section bg-gray-100">
+  <div class="container">
+    <div class="section-title">
+      <h2>Find Lawyers by State</h2>
+      <p>Browse through all 50 states to find the best medical malpractice lawyers in your area</p>
+    </div>
+    
+    <div class="states-grid">
+      {states.map((state, index) => (
+        <a 
+          href={`/${slugify(state.name)}/`} 
+          class="state-card"
+          style={`animation-delay: ${index * 0.02}s`}
+        >
+          <div class="state-header">
+            <span class="state-name">{state.name}</span>
+            <span class="state-abbr">{state.abbr}</span>
+          </div>
+          <div class="state-cities">
+            <span class="cities-label">Top Cities:</span>
+            <span class="cities-list">{state.cities.join(' • ')}</span>
+          </div>
+          <span class="state-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .states-list {
+    background-color: var(--color-gray-100);
+  }
+  
+  .states-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-4);
+  }
+  
+  .state-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    padding: var(--spacing-5);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+    position: relative;
+  }
+  
+  .state-card:hover {
+    border-color: var(--color-black);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+  
+  .state-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .state-name {
+    font-weight: 700;
+    color: var(--color-black);
+    font-size: var(--font-size-lg);
+  }
+  
+  .state-abbr {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-gray-400);
+    background-color: var(--color-gray-100);
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-sm);
+  }
+  
+  .state-cities {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+  
+  .cities-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .cities-list {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .state-arrow {
+    position: absolute;
+    right: var(--spacing-5);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-300);
+    transition: all var(--transition-fast);
+  }
+  
+  .state-card:hover .state-arrow {
+    color: var(--color-black);
+    transform: translateY(-50%) translateX(4px);
+  }
+  
+  @media (max-width: 1200px) {
+    .states-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .states-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .states-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

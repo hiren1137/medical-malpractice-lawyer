@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getAllCities } from '../utils/lawyers';
+
+const title = "Find Lawyer - Search Best Medical Malpractice Lawyers Near You";
+const description = "Find the best medical malpractice lawyers in your city. Search popular queries like 'Best Medical Malpractice Lawyer in Los Angeles', 'Top Attorney in New York' and more.";
+
+// Get all cities sorted by lawyer count
+const allCities = getAllCities();
+
+// Create search items with state info
+const popularSearches = allCities
+  .slice(0, 24)
+  .map((city, index) => ({
+    title: index % 2 === 0 ? `Best Medical Malpractice Lawyer in ${city.city}` : `Top Medical Malpractice Attorney in ${city.city}`,
+    state: city.state,
+    href: `/${city.state_slug}/${city.city_slug}/`,
+  }));
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/find-lawyer/">
+  <Header />
+  <main>
+    <section class="find-hero">
+      <div class="container">
+        <h1>Find the Best Medical Malpractice Lawyer Near You</h1>
+        <p class="hero-subtitle">Browse our directory of verified medical malpractice attorneys across the United States</p>
+      </div>
+    </section>
+
+    <section class="popular-searches section">
+      <div class="container">
+        <h2>Popular Searches</h2>
+        <p class="section-desc">Click on any search query to find medical malpractice lawyers in that city</p>
+        
+        <div class="searches-grid">
+          {popularSearches.map((search) => (
+            <a href={search.href} class="search-card">
+              <div class="search-content">
+                <h3>{search.title}</h3>
+                <span class="search-state">{search.state}</span>
+              </div>
+              <span class="search-arrow">View Lawyers →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="tips-section section bg-gray">
+      <div class="container">
+        <h2>How to Find the Right Medical Malpractice Lawyer</h2>
+        <p class="section-desc">Tips for choosing the best attorney for your case</p>
+        
+        <div class="tips-grid">
+          <div class="tip-card">
+            <span class="tip-icon">📋</span>
+            <h3>Check Experience</h3>
+            <p>Look for attorneys with specific experience in medical malpractice cases and a proven track record of successful verdicts and settlements.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-icon">⭐</span>
+            <h3>Read Reviews</h3>
+            <p>Check client reviews and ratings to understand their experience and how the attorney handled their cases.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-icon">📍</span>
+            <h3>Consider Location</h3>
+            <p>Choose a lawyer who is easily accessible from your location and familiar with local courts and medical institutions.</p>
+          </div>
+          <div class="tip-card">
+            <span class="tip-icon">💬</span>
+            <h3>Schedule a Consultation</h3>
+            <p>Most medical malpractice attorneys offer free initial consultations. Use this opportunity to discuss your case and evaluate the attorney.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .find-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .find-hero h1 {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    color: #aaa;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .popular-searches {
+    padding: 4rem 0;
+  }
+
+  .popular-searches h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .searches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .search-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .search-card:hover {
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .search-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .search-state {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .search-arrow {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .bg-gray {
+    background: #f9f9f9;
+  }
+
+  .tips-section {
+    padding: 4rem 0;
+  }
+
+  .tips-section h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tip-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .tip-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .tip-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-card p {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .searches-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tips-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .find-hero h1 {
+      font-size: 2rem;
+    }
+
+    .searches-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+---
+// Hero Section Component
+---
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>Find the Best Medical Malpractice Lawyers Near You</h1>
+      <p class="hero-subtitle">
+        Connect with experienced medical malpractice attorneys across the United States. 
+        Get expert legal representation, verified credentials, and free consultations all in one place.
+      </p>
+      <div class="hero-buttons">
+        <a href="/find-lawyer" class="btn btn-primary btn-lg">
+          Find a Lawyer
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="/about" class="btn btn-secondary btn-lg">
+          Learn More
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">5,000+</span>
+          <span class="stat-label">Verified Lawyers</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">50</span>
+          <span class="stat-label">States Covered</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: var(--spacing-20) 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-black) 0%,
+      var(--color-gray-900) 50%,
+      var(--color-gray-800) 100%
+    );
+    z-index: -2;
+  }
+  
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+    z-index: -1;
+  }
+  
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .hero h1 {
+    color: var(--color-white);
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-6);
+    letter-spacing: -0.02em;
+  }
+  
+  .hero-subtitle {
+    color: var(--color-gray-300);
+    font-size: var(--font-size-xl);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-8);
+    line-height: 1.6;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: var(--spacing-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-12);
+  }
+  
+  .btn-arrow {
+    margin-left: var(--spacing-2);
+    transition: transform var(--transition-fast);
+  }
+  
+  .btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+  
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-10);
+    flex-wrap: wrap;
+    padding-top: var(--spacing-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-number {
+    color: var(--color-white);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: var(--spacing-2);
+  }
+  
+  .stat-label {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-12) 0;
+      min-height: auto;
+    }
+    
+    .hero h1 {
+      font-size: var(--font-size-3xl);
+    }
+    
+    .hero-subtitle {
+      font-size: var(--font-size-base);
+    }
+    
+    .hero-stats {
+      gap: var(--spacing-6);
+    }
+    
+    .stat-number {
+      font-size: var(--font-size-2xl);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

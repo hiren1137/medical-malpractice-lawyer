@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "About Us - Medical Malpractice Lawyer Directory";
+const description = "Learn about our mission to connect medical malpractice victims with qualified attorneys across the United States.";
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/about/">
+  <Header />
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <h1>About Us</h1>
+        <p class="hero-subtitle">Connecting victims of medical negligence with qualified legal representation</p>
+      </div>
+    </section>
+
+    <section class="about-content section">
+      <div class="container">
+        <div class="content-wrapper">
+          <div class="about-intro">
+            <h2>Our Mission</h2>
+            <p>
+              At Medical Malpractice Lawyer Near Me, we believe that every victim of medical negligence 
+              deserves access to qualified legal representation. Our mission is to connect individuals 
+              and families affected by medical malpractice with experienced attorneys who can help them 
+              seek justice and fair compensation.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h2>What We Do</h2>
+            <p>
+              We maintain a comprehensive directory of medical malpractice lawyers across all 50 states 
+              in the United States. Our directory includes:
+            </p>
+            <ul>
+              <li><strong>7,000+ Verified Attorneys</strong> - Carefully curated listings of medical malpractice specialists</li>
+              <li><strong>750+ Cities Covered</strong> - Find local attorneys in your area</li>
+              <li><strong>Real Client Reviews</strong> - Read verified reviews from actual clients</li>
+              <li><strong>Detailed Profiles</strong> - Learn about each attorney's experience, specialties, and contact information</li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h2>Why Medical Malpractice Cases Matter</h2>
+            <p>
+              Medical malpractice occurs when a healthcare provider fails to meet the standard of care, 
+              resulting in injury or harm to a patient. These cases can involve:
+            </p>
+            <ul>
+              <li>Surgical errors and complications</li>
+              <li>Misdiagnosis or delayed diagnosis</li>
+              <li>Medication and prescription errors</li>
+              <li>Birth injuries and obstetric negligence</li>
+              <li>Hospital and nursing home negligence</li>
+              <li>Emergency room errors</li>
+            </ul>
+            <p>
+              Victims of medical malpractice often face significant medical expenses, lost wages, 
+              and emotional trauma. Having the right attorney can make a crucial difference in 
+              obtaining the compensation and justice they deserve.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h2>For Attorneys</h2>
+            <p>
+              Are you a medical malpractice attorney looking to grow your practice? We offer 
+              listing opportunities for qualified attorneys who specialize in medical negligence cases.
+            </p>
+            <div class="cta-box">
+              <h3>📋 List Your Practice</h3>
+              <p>Get your firm listed in our directory and connect with clients seeking legal representation.</p>
+              <a href="mailto:techjits.com@gmail.com?subject=List My Practice" class="cta-btn">Contact Us to Get Listed →</a>
+            </div>
+          </div>
+
+          <div class="about-section">
+            <h2>Contact Us</h2>
+            <p>
+              Have questions about our directory or want to get in touch? We'd love to hear from you.
+            </p>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <div>
+                  <strong>Email:</strong>
+                  <a href="mailto:techjits.com@gmail.com">techjits.com@gmail.com</a>
+                </div>
+              </div>
+            </div>
+            <a href="/contact/" class="secondary-btn">Visit Contact Page →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .about-hero h1 {
+    color: #fff !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    color: #aaa;
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    padding: 4rem 0;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-intro {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .about-intro h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-intro p {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  .about-section {
+    margin-bottom: 3rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .about-section p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .about-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .about-section li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .about-section li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #000;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #f8f8f8 0%, #fff 100%);
+    border: 2px solid #000;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .cta-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-box p {
+    margin-bottom: 1rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: #333;
+  }
+
+  .contact-info {
+    background: #f9f9f9;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    font-size: 1.5rem;
+  }
+
+  .contact-item a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+
+  .secondary-btn {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #000;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #e5e5e5;
+    transition: all 0.2s;
+  }
+
+  .secondary-btn:hover {
+    background: #eee;
+  }
+
+  @media (max-width: 600px) {
+    .about-hero h1 {
+      font-size: 2rem;
+    }
+
+    .about-intro h2 {
+      font-size: 1.5rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.25rem;
+    }
+
+    .cta-box {
+      padding: 1.5rem;
+    }
+  }
+</style>

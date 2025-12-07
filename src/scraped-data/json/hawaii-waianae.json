@@ -1,0 +1,82 @@
+{
+  "city": "Waianae",
+  "city_slug": "waianae",
+  "state": "Hawaii",
+  "state_slug": "hawaii",
+  "total_lawyers": 2,
+  "scraped_at": "2025-12-06T20:12:04.196247",
+  "lawyers": [
+    {
+      "name": "Rego & Nakoa Attorneys at Law - A Law Corporation",
+      "category": "Lawyer",
+      "verified": true,
+      "phone": "+1 808-696-7061",
+      "website": "https://www.regonakoalaw.com/",
+      "address": "85-833 Farrington Hwy, Waianae, HI 96792",
+      "city": "Waianae",
+      "city_slug": "waianae",
+      "state": "Hawaii",
+      "state_slug": "hawaii",
+      "zipcode": "96792",
+      "latitude": 21.4460215,
+      "longitude": -158.1885749,
+      "logo": "https://lh5.googleusercontent.com/-3UumVw41LEY/AAAAAAAAAAI/AAAAAAAAAAA/b5S_EA4D92g/s400-p-k-no-ns-nd/photo.jpg",
+      "photos": [],
+      "photo_count": 1,
+      "rating": 4.5,
+      "reviews_count": 8,
+      "reviews_breakdown": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 7
+      },
+      "hours": null,
+      "description": null,
+      "place_id": "ChIJhZMp8HyLAHwRD5pgaPeyl-s",
+      "found_by_query": "medical malpractice lawyer",
+      "scraped_at": "2025-12-06T20:11:28.077772"
+    },
+    {
+      "name": "Legal Aid Society of Hawaii",
+      "category": "Lawyer",
+      "verified": false,
+      "phone": "+1 808-696-6322",
+      "website": "http://www.legalaidhawaii.org/",
+      "address": "85-670 Farrington Hwy # 8, Waianae, HI 96792",
+      "city": "Waianae",
+      "city_slug": "waianae",
+      "state": "Hawaii",
+      "state_slug": "hawaii",
+      "zipcode": "96792",
+      "latitude": 21.4499161,
+      "longitude": -158.1906663,
+      "logo": null,
+      "photos": [],
+      "photo_count": 2,
+      "rating": 3.9,
+      "reviews_count": 16,
+      "reviews_breakdown": {
+        "1": 3,
+        "2": 0,
+        "3": 1,
+        "4": 3,
+        "5": 9
+      },
+      "hours": {
+        "Monday": "8AM-4:30PM",
+        "Tuesday": "8AM-4:30PM",
+        "Wednesday": "8AM-4:30PM",
+        "Thursday": "8AM-4:30PM",
+        "Friday": "8AM-4:30PM",
+        "Saturday": "Closed",
+        "Sunday": "Closed"
+      },
+      "description": null,
+      "place_id": "ChIJdSvs0UyKAHwRQGGoft18I5I",
+      "found_by_query": "medical malpractice lawyer",
+      "scraped_at": "2025-12-06T20:11:28.077800"
+    }
+  ]
+}

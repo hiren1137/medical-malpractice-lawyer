@@ -1,0 +1,131 @@
+---
+// Why Choose Us Component
+const features = [
+  {
+    icon: "✓",
+    title: "Verified Lawyers",
+    description: "All attorneys in our directory are verified with valid bar licenses and credentials.",
+  },
+  {
+    icon: "★",
+    title: "Client Reviews",
+    description: "Read authentic reviews from real clients to make informed decisions.",
+  },
+  {
+    icon: "📍",
+    title: "Easy Location Search",
+    description: "Find lawyers near you with our powerful location-based search system.",
+  },
+  {
+    icon: "💬",
+    title: "Free Consultation",
+    description: "Most lawyers offer free initial consultations to discuss your case.",
+  },
+];
+---
+
+<section class="why-choose section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose Medical Malpractice Lawyer Near Me?</h2>
+      <p>We make finding the right medical malpractice attorney simple, safe, and reliable</p>
+    </div>
+    
+    <div class="features-grid">
+      {features.map((feature, index) => (
+        <div 
+          class="feature-card"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="feature-icon">{feature.icon}</div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-choose {
+    background-color: var(--color-white);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-6);
+  }
+  
+  .feature-card {
+    text-align: center;
+    padding: var(--spacing-8);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+  }
+  
+  .feature-card:hover {
+    border-color: var(--color-black);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+  
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-size: var(--font-size-2xl);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .feature-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .feature-description {
+    font-size: var(--font-size-base);
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+      padding: var(--spacing-6);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
