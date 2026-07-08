@@ -3,7 +3,7 @@
   "city_slug": "niagara-falls",
   "state": "New York",
   "state_slug": "new-york",
-  "total_lawyers": 16,
+  "total_lawyers": 15,
   "scraped_at": "2025-12-07T02:20:12.789076",
   "lawyers": [
     {
@@ -45,46 +45,6 @@
       "place_id": "ChIJk9uqVc1D04kR925jZJp1WN4",
       "found_by_query": "medical malpractice lawyer",
       "scraped_at": "2025-12-07T02:19:35.867659"
-    },
-    {
-      "name": "Richmond Vona Injury Lawyers",
-      "category": "Personal injury attorney",
-      "verified": true,
-      "phone": "+1 716-325-6744",
-      "website": "https://www.richmondvona.com/niagara-falls/%3Futm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgbp-listing-niagara-falls",
-      "address": "8575 Niagara Falls Blvd, Niagara Falls, NY 14304",
-      "city": "Niagara Falls",
-      "city_slug": "niagara-falls",
-      "state": "New York",
-      "state_slug": "new-york",
-      "zipcode": "14304",
-      "latitude": 43.090742399999996,
-      "longitude": -78.965479,
-      "logo": "https://lh5.googleusercontent.com/-D4jlnfeVzAg/AAAAAAAAAAI/AAAAAAAAAAA/Px11KkrS9A0/s400-p-k-no-ns-nd/photo.jpg",
-      "photos": [],
-      "photo_count": 19,
-      "rating": 5,
-      "reviews_count": 32,
-      "reviews_breakdown": {
-        "1": 0,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 32
-      },
-      "hours": {
-        "Monday": "Open 24 hours",
-        "Tuesday": "Open 24 hours",
-        "Wednesday": "Open 24 hours",
-        "Thursday": "Open 24 hours",
-        "Friday": "Open 24 hours",
-        "Saturday": "Open 24 hours",
-        "Sunday": "Open 24 hours"
-      },
-      "description": null,
-      "place_id": "ChIJ16nup0Jp04kR10ViV60uOBk",
-      "found_by_query": "medical malpractice lawyer",
-      "scraped_at": "2025-12-07T02:19:35.867699"
     },
     {
       "name": "Law Office of Craig Touma",
