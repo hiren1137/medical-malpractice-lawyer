@@ -229,6 +229,14 @@ const canonicalPath = `/${lawyer.state_slug}/${lawyer.city_slug}/${lawyer.slug}/
                   <span class="contact-icon">📞</span>
                   <a href={`tel:${phone.replace(/\D/g, '')}`} class="contact-text phone">{phone}</a>
                 </div>
+                {lawyer.email && (
+                  <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <a href={`mailto:${lawyer.email}`} class="contact-text">
+                      {lawyer.email}
+                    </a>
+                  </div>
+                )}
                 {lawyer.website && (
                   <div class="contact-item">
                     <span class="contact-icon">🌐</span>

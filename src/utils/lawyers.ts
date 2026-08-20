@@ -8,6 +8,7 @@ export interface LawyerData {
     verified: boolean;
     phone: string;
     website: string;
+    email?: string | null;
     address: string;
     city: string;
     city_slug: string;
