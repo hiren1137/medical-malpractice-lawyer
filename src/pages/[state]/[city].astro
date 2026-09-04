@@ -46,8 +46,16 @@ const sortedLawyers = [...lawyers].sort((a, b) => {
   return b.reviews_count - a.reviews_count;
 });
 
-const title = `Medical Malpractice Lawyers in ${cityName}, ${stateName} - Find Expert Attorneys`;
-const description = `Find top-rated medical malpractice lawyers in ${cityName}, ${stateName}. ${stats.totalLawyers} verified attorneys with ${stats.avgRating} average rating. Get help for your medical negligence case.`;
+const isChicago = stateSlug === 'illinois' && citySlug === 'chicago';
+
+const title = isChicago 
+  ? `Best Chicago Medical Malpractice Lawyers & Attorneys (2026)`
+  : `Medical Malpractice Lawyers in ${cityName}, ${stateName} - Find Expert Attorneys`;
+
+const description = isChicago
+  ? `Compare top-rated medical malpractice lawyers in Chicago, IL. Browse ${stats.totalLawyers} verified attorneys with ${stats.avgRating} average rating and client reviews.`
+  : `Find top-rated medical malpractice lawyers in ${cityName}, ${stateName}. ${stats.totalLawyers} verified attorneys with ${stats.avgRating} average rating. Get help for your medical negligence case.`;
+
 const canonicalPath = `/${stateSlug}/${citySlug}/`;
 ---
 
@@ -64,10 +72,12 @@ const canonicalPath = `/${stateSlug}/${citySlug}/`;
           <span class="separator">›</span>
           <span class="current">{cityName}</span>
         </nav>
-        <h1>Medical Malpractice Lawyers in {cityName}, {stateName}</h1>
+        <h1>{isChicago ? 'Chicago Medical Malpractice Lawyers & Attorneys' : `Medical Malpractice Lawyers in ${cityName}, ${stateName}`}</h1>
         <p class="city-subtitle">
-          Find experienced medical malpractice attorneys in {cityName}. 
-          Our directory features {stats.totalLawyers} verified lawyers ready to help with your case.
+          {isChicago 
+            ? `Find top-rated medical malpractice attorneys in Chicago, IL. Our directory features ${stats.totalLawyers} verified lawyers ready to help with your case.`
+            : `Find experienced medical malpractice attorneys in ${cityName}. Our directory features ${stats.totalLawyers} verified lawyers ready to help with your case.`
+          }
         </p>
         <div class="city-stats">
           <div class="stat-item">
