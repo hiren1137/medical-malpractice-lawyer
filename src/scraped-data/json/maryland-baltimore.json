@@ -3,7 +3,7 @@
   "city_slug": "baltimore",
   "state": "Maryland",
   "state_slug": "maryland",
-  "total_lawyers": 12,
+  "total_lawyers": 13,
   "scraped_at": "2025-12-06T22:34:12.666812",
   "lawyers": [
     {
@@ -485,6 +485,46 @@
       "place_id": "ChIJ85o9JiL9t4kRLn1cVu2JxYQ",
       "found_by_query": "medical malpractice attorney",
       "scraped_at": "2025-12-06T22:34:12.666761"
+    },
+    {
+      "name": "The Law Offices of Peter T. Nicholl",
+      "category": "Medical malpractice attorney",
+      "verified": true,
+      "phone": "+1 410-244-7005",
+      "website": "https://www.nicholllaw.com/baltimore-medical-malpractice-lawyers/",
+      "address": "1215 E Fort Ave #202, Baltimore, MD 21230",
+      "city": "Baltimore",
+      "city_slug": "baltimore",
+      "state": "Maryland",
+      "state_slug": "maryland",
+      "zipcode": "21230",
+      "latitude": 39.27152,
+      "longitude": -76.59825,
+      "logo": "https://www.nicholllaw.com/wp-content/uploads/assets/media/images/lp/logo-peter-nicholl.png",
+      "photos": [],
+      "photo_count": 0,
+      "rating": 4.2,
+      "reviews_count": 55,
+      "reviews_breakdown": {
+        "1": 9,
+        "2": 0,
+        "3": 2,
+        "4": 4,
+        "5": 40
+      },
+      "hours": {
+        "Monday": "Open 24 hours",
+        "Tuesday": "Open 24 hours",
+        "Wednesday": "Open 24 hours",
+        "Thursday": "Open 24 hours",
+        "Friday": "Open 24 hours",
+        "Saturday": "Open 24 hours",
+        "Sunday": "Open 24 hours"
+      },
+      "description": null,
+      "place_id": "ChIJbXkLgP8EyIkRxmZ7d1vQ2vM",
+      "found_by_query": "medical malpractice lawyer",
+      "scraped_at": "2026-09-04T23:59:00.000000"
     }
   ]
 }
