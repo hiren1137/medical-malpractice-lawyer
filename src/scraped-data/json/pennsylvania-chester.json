@@ -91,7 +91,7 @@
       "category": "Personal injury attorney",
       "verified": true,
       "phone": "+1 484-289-4880",
-      "website": "http://www.kingbirdlegal.com/%3Futm_source%3Dgoogle-gmb-maps%26utm_medium%3Dgmb-website-button%26utm_campaign%3Dlocl.io%26utm_content%3D6a4e786d-8738-4363-96db-f90b25c8592e",
+      "website": "https://www.kingbirdlegal.com/",
       "address": "535 N Church St Suite 150, West Chester, PA 19380",
       "city": "Chester",
       "city_slug": "chester",
@@ -113,15 +113,15 @@
         "5": 57
       },
       "hours": {
-        "Monday": "Open 24 hours",
-        "Tuesday": "Open 24 hours",
-        "Wednesday": "Open 24 hours",
-        "Thursday": "Open 24 hours",
-        "Friday": "Open 24 hours",
-        "Saturday": "Open 24 hours",
-        "Sunday": "Open 24 hours"
+        "Monday": "5AM-11PM",
+        "Tuesday": "5AM-11PM",
+        "Wednesday": "5AM-11PM",
+        "Thursday": "5AM-11PM",
+        "Friday": "5AM-11PM",
+        "Saturday": "5AM-11PM",
+        "Sunday": "5AM-11PM"
       },
-      "description": null,
+      "description": "Kingbird Legal is a highly rated personal injury law firm serving West Chester, PA, and surrounding areas including Chester, Montgomery, and Delaware counties. Our experienced attorneys specialize in car accidents, truck accidents, motorcycle accidents, pedestrian accidents, and wrongful death cases. We are committed to delivering personalized, client-focused representation to help you recover the compensation you deserve. Whether you’re in Wayne, King of Prussia, Phoenixville, or other nearby areas, our team is here to fight for your rights. Contact Kingbird Legal today to discuss your case and let us pursue justice on your behalf.",
       "place_id": "ChIJEf_VysfxxokRUhSOataqeW0",
       "found_by_query": "medical malpractice lawyer",
       "scraped_at": "2025-12-07T04:06:35.296825"
