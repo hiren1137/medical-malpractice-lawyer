@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/texas/san-antonio/san-antonio-personal-injury-lawyers",
+      "destination": "/texas/san-antonio/",
+      "permanent": true
+    },
+    {
+      "source": "/texas/san-antonio/san-antonio-personal-injury-lawyers/:match*",
+      "destination": "/texas/san-antonio/",
+      "permanent": true
+    }
+  ]
+}
