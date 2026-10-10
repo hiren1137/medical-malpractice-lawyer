@@ -127,12 +127,12 @@ const canonicalPath = `/${lawyer.state_slug}/${lawyer.city_slug}/${lawyer.slug}/
               Call Now
             </a>
             {lawyer.website && (
-              <a href={lawyer.website} target="_blank" rel="noopener noreferrer" class="action-btn secondary">
+              <a href={lawyer.website} target="_blank" rel="nofollow noopener noreferrer" class="action-btn secondary">
                 <span class="btn-icon">🌐</span>
                 Visit Website
               </a>
             )}
-            <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="action-btn secondary">
+            <a href={directionsUrl} target="_blank" rel="nofollow noopener noreferrer" class="action-btn secondary">
               <span class="btn-icon">🗺️</span>
               Get Directions
             </a>
@@ -240,7 +240,7 @@ const canonicalPath = `/${lawyer.state_slug}/${lawyer.city_slug}/${lawyer.slug}/
                 {lawyer.website && (
                   <div class="contact-item">
                     <span class="contact-icon">🌐</span>
-                    <a href={lawyer.website} target="_blank" rel="noopener noreferrer" class="contact-text">
+                    <a href={lawyer.website} target="_blank" rel="nofollow noopener noreferrer" class="contact-text">
                       Visit Website
                     </a>
                   </div>
@@ -248,7 +248,7 @@ const canonicalPath = `/${lawyer.state_slug}/${lawyer.city_slug}/${lawyer.slug}/
               </div>
               <a href={`tel:${phone.replace(/\D/g, '')}`} class="sidebar-btn primary">Call Now</a>
               {lawyer.website && (
-                <a href={lawyer.website} target="_blank" rel="noopener noreferrer" class="sidebar-btn secondary">Visit Website</a>
+                <a href={lawyer.website} target="_blank" rel="nofollow noopener noreferrer" class="sidebar-btn secondary">Visit Website</a>
               )}
             </div>
 
@@ -287,7 +287,7 @@ const canonicalPath = `/${lawyer.state_slug}/${lawyer.city_slug}/${lawyer.slug}/
                   title={`Map showing location of ${lawyer.name}`}>
                 </iframe>
               </div>
-              <a href={directionsUrl} target="_blank" rel="noopener noreferrer" class="sidebar-btn secondary">
+              <a href={directionsUrl} target="_blank" rel="nofollow noopener noreferrer" class="sidebar-btn secondary">
                 🗺️ Get Directions
               </a>
             </div>
