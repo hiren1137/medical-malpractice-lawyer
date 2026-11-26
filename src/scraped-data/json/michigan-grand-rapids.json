@@ -3,7 +3,7 @@
   "city_slug": "grand-rapids",
   "state": "Michigan",
   "state_slug": "michigan",
-  "total_lawyers": 10,
+  "total_lawyers": 9,
   "scraped_at": "2025-12-06T23:11:59.198768",
   "lawyers": [
     {
@@ -85,46 +85,6 @@
       "place_id": "ChIJczufbEdTGIgRBQijlzvi_7g",
       "found_by_query": "medical malpractice lawyer",
       "scraped_at": "2025-12-06T23:11:22.995633"
-    },
-    {
-      "name": "Christensen Law - Personal Injury Attorney",
-      "category": "Personal injury attorney",
-      "verified": true,
-      "phone": "+1 616-512-0718",
-      "website": "https://davidchristensenlaw.com/grand-rapids/%3Futm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgmb-listing-grand-rapids",
-      "address": "401 Hall St SW Suite 185L, Grand Rapids, MI 49503",
-      "city": "Grand Rapids",
-      "city_slug": "grand-rapids",
-      "state": "Michigan",
-      "state_slug": "michigan",
-      "zipcode": "49503",
-      "latitude": 42.942931099999996,
-      "longitude": -85.6781381,
-      "logo": "https://lh5.googleusercontent.com/-lTUbOXc9Uz4/AAAAAAAAAAI/AAAAAAAAAAA/L17gHzDIL1M/s400-p-k-no-ns-nd/photo.jpg",
-      "photos": [],
-      "photo_count": 55,
-      "rating": 5,
-      "reviews_count": 146,
-      "reviews_breakdown": {
-        "1": 0,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 146
-      },
-      "hours": {
-        "Monday": "Open 24 hours",
-        "Tuesday": "Open 24 hours",
-        "Wednesday": "Open 24 hours",
-        "Thursday": "Open 24 hours",
-        "Friday": "Open 24 hours",
-        "Saturday": "Open 24 hours",
-        "Sunday": "Open 24 hours"
-      },
-      "description": null,
-      "place_id": "ChIJl3aZactTGIgRH8ZhXvid508",
-      "found_by_query": "medical malpractice lawyer",
-      "scraped_at": "2025-12-06T23:11:22.995642"
     },
     {
       "name": "Sinas Dramis Law Firm",

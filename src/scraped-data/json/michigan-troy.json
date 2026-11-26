@@ -3,7 +3,7 @@
   "city_slug": "troy",
   "state": "Michigan",
   "state_slug": "michigan",
-  "total_lawyers": 11,
+  "total_lawyers": 10,
   "scraped_at": "2025-12-06T23:22:54.954517",
   "lawyers": [
     {
@@ -165,46 +165,6 @@
       "place_id": "ChIJH1mbzGxAw4gRQR1AuEcpQnI",
       "found_by_query": "medical malpractice lawyer",
       "scraped_at": "2025-12-06T23:22:18.840918"
-    },
-    {
-      "name": "Christensen Law - Personal Injury Attorney",
-      "category": "Personal injury attorney",
-      "verified": true,
-      "phone": "+1 248-233-0684",
-      "website": "https://davidchristensenlaw.com/troy/%3Futm_source%3Dgoogle%26utm_medium%3Dorganic%26utm_campaign%3Dgbp-listing-troy",
-      "address": "2328 Livernois Rd Ste 1090, Troy, MI 48083",
-      "city": "Troy",
-      "city_slug": "troy",
-      "state": "Michigan",
-      "state_slug": "michigan",
-      "zipcode": "48083",
-      "latitude": 42.5564416,
-      "longitude": -83.1469462,
-      "logo": "https://lh4.googleusercontent.com/-CHGEWLBjzWk/AAAAAAAAAAI/AAAAAAAAAAA/_ON6bDaSZpI/s400-p-k-no-ns-nd/photo.jpg",
-      "photos": [],
-      "photo_count": 45,
-      "rating": 5,
-      "reviews_count": 7,
-      "reviews_breakdown": {
-        "1": 0,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 7
-      },
-      "hours": {
-        "Monday": "Open 24 hours",
-        "Tuesday": "Open 24 hours",
-        "Wednesday": "Open 24 hours",
-        "Thursday": "Open 24 hours",
-        "Friday": "Open 24 hours",
-        "Saturday": "Open 24 hours",
-        "Sunday": "Open 24 hours"
-      },
-      "description": null,
-      "place_id": "ChIJR__3AdvFJIgRTk8btrN3nVY",
-      "found_by_query": "medical malpractice lawyer",
-      "scraped_at": "2025-12-06T23:22:18.840925"
     },
     {
       "name": "Atty Mike",
